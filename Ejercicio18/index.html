@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 18</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Eventos</h1>
+        <p>Haz que cuando se haga click sobre el botón “Guardar”, salté un alert con un mensaje de guardado.</p>
+                <!--Cuando hagamos click sobre el botón de guardar aparecerá un alert. (agregar el ID paraque JS lo reconozca)-->
+        <button id="botonId">Guardar</button>
+
+        <p>Cuando hagamos foco sobre este input se pondrá de color amarillo y cuando se lo quitemos cambiará de color</p> 
+        <label>Nombre</label>
+        <!--Cuando hagamos foco sobre el input del nombre el fondo será de un color y cuando se lo quitemos, de otro. (agregar el ID paraque JS lo reconozca)-->
+        <input type="text" id="inputNombreID"/>
+
+        <br> <br>
+        <p>Dependiendo si escribamos una vocal o una consonante el contenido del input aparecerá de distinto color</p>
+                <!--Dependiendo de si escribimos una vocal o una consonante en el segundo input su contenido se mostrará de un color distinto.(agregar el ID paraque JS lo reconozca)-->
+        <label>Escribe una letra seguida de enter o dos letras</label> 
+        <input type="text" id="inputLetraID" Color="blue">
+        
+        <script type="text/javascript">
+            //Cuando hagamos click sobre el botón de guardar aparecerá un alert
+            var boton = document.getElementById('botonId');
+            boton.addEventListener("click", mostrarAlerta);
+            function mostrarAlerta() {
+                alert ("Estas seguro de Guardar?");
+            }
+            //Cuando hagamos foco sobre el input del nombre el fondo será de un color y cuando se lo quitemos, de otro.
+            var inputNombre = document.getElementById('inputNombreID');
+            inputNombre.addEventListener("mouseover", cambiarFondo);
+            inputNombre.addEventListener("mouseout", retornarFondo);
+            function cambiarFondo (){
+                this.style.backgroundColor = "red";
+            }
+            function retornarFondo (){
+                this.style.backgroundColor = "blue";
+            }
+            //Dependiendo de si escribimos una vocal o una consonante en el segundo input su contenido se mostrará de un color distinto
+            const consonantes = ("QqWwRrTtYyPpSsDdFfGgHhJjKkLlÑñZzXxCcVvBbNnMm")
+            const vocales = ("aAáÁeEéÉiIíÍoOóÓuUuúÚ")
+            var inputLetra = document.getElementById('inputLetraID');
+            inputLetra.addEventListener("keydown", cambiarColorLetra);
+            function cambiarColorLetra (){
+                if (consonantes.includes(inputLetraID.value[0]) === true) {
+                    this.style.backgroundColor = "green";
+                }
+                else if (vocales.includes(inputLetraID.value[0]) === true) {
+                    this.style.backgroundColor = "orange";
+                }
+                else {
+                this.style.backgroundColor = "white";
+                }
+            }
+        </script>
+    </body>
+</html>
