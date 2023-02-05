@@ -11,8 +11,8 @@ for(var i=0; i<number.length; i++) {
         var numeroI = number[i]
         numberImpar.push(numeroI)
     }
-
 }
+
 console.log("Array Completo: [" + number + "]");
 console.log("Array de numeros pares: [" + numberPar + "]");
 console.log("Array de numeros impares: [" +numberImpar + "]");
